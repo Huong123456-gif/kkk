@@ -1,98 +1,84 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Đăng Hướng - Trang Cá Nhân</title>
-  <!-- Font Awesome cho các biểu tượng mạng xã hội -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        integrity="sha512-p0cGHEsB9zhyt6hV4YhK8vWZlT2TbG4ZBTO4P0LrkZ7Ouw5V+UdzgFk5H7xV4AcC5XouT5YVOc+Jv+DJ3aKk0A==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
-      background: #fff;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 500px;
-      padding: 40px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
-    h1 {
-      margin-bottom: 20px;
-      font-size: 2rem;
-      color: #333;
-    }
-    p {
-      margin-bottom: 30px;
-      color: #666;
-    }
-    .social-links {
-      display: flex;
-      justify-content: space-around;
-    }
-    .social-links a {
-      text-decoration: none;
-      color: #fff;
-      background: #333;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .social-links a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .social-links a.facebook {
-      background: #3b5998;
-    }
-    .social-links a.instagram {
-      background: #E1306C;
-    }
-    .social-links a.tiktok {
-      background: #010101;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media(max-width: 600px) {
-      .social-links {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .social-links a {
-        margin: 0 auto;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Hướng - Trang cá nhân</title>
+    <!-- Font Awesome để hiển thị icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('avatar.png') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            text-decoration: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .facebook { background: #3b5998; }
+        .instagram { background: #E1306C; }
+        .tiktok { background: #010101; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Xin chào, tôi là Đăng Hướng</h1>
-    <p>Chào mừng bạn</p>
-    <div class="social-links">
-      <a class="facebook" href="https://www.facebook.com/huongbrian.0711" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a class="instagram" href="https://www.instagram.com/dang.huong314/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a class="tiktok" href="https://www.tiktok.com/@dhuong0711" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <div class="container">
+        <h1>Xin chào, tôi là Đăng Hướng</h1>
+        <p>Chào mừng bạn đến với trang cá nhân của tôi. Kết nối với tôi qua các nền tảng dưới đây!</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/huongbrian.0711" class="facebook" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/dang.huong314/" class="instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@dhuong0711" class="tiktok" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
     </div>
-  </div>
 </body>
 </html>
+
