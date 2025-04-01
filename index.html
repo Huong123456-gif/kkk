@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên hệ Đăng Hướng</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://drive.google.com/uc?export=view&id=1U-mrIZkUsIv3fx6PBoVDqkZ_yHXLxEam') no-repeat center center/cover;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-        }
-        h1 {
-            font-size: 24px;
-            margin: 10px 0;
-            color: #333;
-        }
-        p {
-            font-size: 16px;
-            color: #666;
-        }
-        .social-links a {
-            display: block;
-            margin: 10px;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .social-links a:hover {
-            background: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng Hướng - Trang Cá Nhân</title>
+  <!-- Font Awesome cho các biểu tượng mạng xã hội -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-p0cGHEsB9zhyt6hV4YhK8vWZlT2TbG4ZBTO4P0LrkZ7Ouw5V+UdzgFk5H7xV4AcC5XouT5YVOc+Jv+DJ3aKk0A==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: #fff;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      padding: 40px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+    p {
+      margin-bottom: 30px;
+      color: #666;
+    }
+    .social-links {
+      display: flex;
+      justify-content: space-around;
+    }
+    .social-links a {
+      text-decoration: none;
+      color: #fff;
+      background: #333;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .social-links a.facebook {
+      background: #3b5998;
+    }
+    .social-links a.instagram {
+      background: #E1306C;
+    }
+    .social-links a.tiktok {
+      background: #010101;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media(max-width: 600px) {
+      .social-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .social-links a {
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <img src="https://drive.google.com/uc?export=view&id=1MEU7uIGGpkdGuuq_UwzxbETAQ_VslBts" alt="Avatar Đăng Hướng" class="avatar">
-    <h1>Đăng Hướng</h1>
-    <p>Infomation dang huong!</p>
+  <div class="container">
+    <h1>Xin chào, tôi là Đăng Hướng</h1>
+    <p>Chào mừng bạn đến với trang cá nhân của tôi. Kết nối với tôi qua các nền tảng sau!</p>
     <div class="social-links">
-        <a href="https://www.facebook.com/huongbrian.0711" target="_blank">Facebook Đăng Hướng</a>
-        <a href="https://www.instagram.com/dang.huong314/" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@dhuong0711" target="_blank">TikTok Đăng Hướng</a>
+      <a class="facebook" href="https://www.facebook.com/huongbrian.0711" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a class="instagram" href="https://www.instagram.com/dang.huong314/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a class="tiktok" href="https://www.tiktok.com/@dhuong0711" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
-</div>
-
+  </div>
 </body>
 </html>
-
