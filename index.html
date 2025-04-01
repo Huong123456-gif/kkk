@@ -1,98 +1,183 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Hướng - Trang cá nhân</title>
-    <!-- Font Awesome để hiển thị icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            position: relative;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('huong.jpg') no-repeat center center/cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* Lớp phủ gradient màu sắc */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 229, 255, 0.3));
-            pointer-events: none;
-            z-index: 0;
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 400px;
-        }
-        h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .social-links a {
-            text-decoration: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            transition: transform 0.3s ease;
-        }
-        .social-links a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .facebook { background: #3b5998; }
-        .instagram { background: #E1306C; }
-        .tiktok { background: #010101; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Hướng - Trang cá nhân</title>
+  <!-- Font Awesome để hiển thị icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('huong.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Hiệu ứng nền gradient động */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 229, 255, 0.3));
+      animation: gradientMove 6s infinite alternate;
+      z-index: 0;
+    }
+    @keyframes gradientMove {
+      0% { opacity: 0.6; }
+      100% { opacity: 0.9; }
+    }
+    /* Hiệu ứng particles xung quanh */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      opacity: 0;
+      animation: float calc(5s + var(--i) * 1s) linear infinite;
+    }
+    /* Tạo một số particle với kích cỡ, vị trí ngẫu nhiên */
+    .particle:nth-child(1) { --i: 1; width: 15px; height: 15px; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { --i: 2; width: 20px; height: 20px; left: 30%; animation-delay: 1s; }
+    .particle:nth-child(3) { --i: 3; width: 10px; height: 10px; left: 50%; animation-delay: 2s; }
+    .particle:nth-child(4) { --i: 4; width: 25px; height: 25px; left: 70%; animation-delay: 0.5s; }
+    .particle:nth-child(5) { --i: 5; width: 18px; height: 18px; left: 85%; animation-delay: 1.5s; }
+    .particle:nth-child(6) { --i: 6; width: 12px; height: 12px; left: 20%; animation-delay: 2.5s; }
+    .particle:nth-child(7) { --i: 7; width: 22px; height: 22px; left: 40%; animation-delay: 0.8s; }
+    .particle:nth-child(8) { --i: 8; width: 16px; height: 16px; left: 60%; animation-delay: 1.2s; }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-20vh) scale(1);
+        opacity: 0;
+      }
+    }
+    
+    .container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    /* Hiệu ứng chữ gõ tự động */
+    .typing-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .social-links a {
+      text-decoration: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+    .facebook { background: #3b5998; }
+    .instagram { background: #E1306C; }
+    .tiktok { background: #010101; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Xin chào, tôi là Đăng Hướng</h1>
-        <p>Dang Huong dayyy</p>
-        <div class="social-links">
-            <a href="https://www.facebook.com/huongbrian.0711" class="facebook" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/dang.huong314/" class="instagram" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.tiktok.com/@dhuong0711" class="tiktok" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-        </div>
+  <!-- Phần hiệu ứng particles xung quanh -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <h1>Xin chào, tôi là Đăng Hướng</h1>
+    <p class="typing-text"></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/huongbrian.0711" class="facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/dang.huong314/" class="instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@dhuong0711" class="tiktok" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
     </div>
+  </div>
+
+  <script>
+    // Hiệu ứng chữ gõ tự động
+    const text = "Dang Huong dayyy";
+    let index = 0;
+    function typeEffect() {
+      if (index < text.length) {
+        document.querySelector(".typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
 </body>
 </html>
