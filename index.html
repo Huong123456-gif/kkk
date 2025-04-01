@@ -13,6 +13,7 @@
             box-sizing: border-box;
         }
         body {
+            position: relative;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('huong.jpg') no-repeat center center/cover;
             min-height: 100vh;
@@ -20,7 +21,21 @@
             justify-content: center;
             align-items: center;
         }
+        /* Lớp phủ gradient màu sắc */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 229, 255, 0.3));
+            pointer-events: none;
+            z-index: 0;
+        }
         .container {
+            position: relative;
+            z-index: 1;
             background: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 15px;
