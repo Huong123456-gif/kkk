@@ -137,6 +137,37 @@
     .instagram { background: #E1306C; }
     .tiktok { background: #010101; }
     .locket { background: #8A2BE2; }
+
+    /* Phần trang trí Giáng Sinh */
+    .christmas-tree {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 48px;
+      z-index: 3;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.1); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
+    .christmas-greeting {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #fff;
+      z-index: 3;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      animation: fadeInText 3s infinite alternate;
+    }
+    @keyframes fadeInText {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -151,6 +182,10 @@
     <div class="particle"></div>
     <div class="particle"></div>
   </div>
+
+  <!-- Trang trí Giáng Sinh -->
+  <div class="christmas-tree">🎄</div>
+  <div class="christmas-greeting">Merry Christmas!</div>
 
   <div class="container">
     <h1>info Đăng Hướng</h1>
