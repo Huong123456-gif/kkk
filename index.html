@@ -38,7 +38,7 @@
       0% { opacity: 0.6; }
       100% { opacity: 0.9; }
     }
-    /* Hiệu ứng particles xung quanh */
+    /* Hiệu ứng particles (cũ) nếu bạn muốn giữ lại */
     .particles {
       position: absolute;
       top: 0;
@@ -55,7 +55,6 @@
       opacity: 0;
       animation: float calc(5s + var(--i) * 1s) linear infinite;
     }
-    /* Tạo một số particle với kích cỡ, vị trí ngẫu nhiên */
     .particle:nth-child(1) { --i: 1; width: 15px; height: 15px; left: 10%; animation-delay: 0s; }
     .particle:nth-child(2) { --i: 2; width: 20px; height: 20px; left: 30%; animation-delay: 1s; }
     .particle:nth-child(3) { --i: 3; width: 10px; height: 10px; left: 50%; animation-delay: 2s; }
@@ -64,24 +63,50 @@
     .particle:nth-child(6) { --i: 6; width: 12px; height: 12px; left: 20%; animation-delay: 2.5s; }
     .particle:nth-child(7) { --i: 7; width: 22px; height: 22px; left: 40%; animation-delay: 0.8s; }
     .particle:nth-child(8) { --i: 8; width: 16px; height: 16px; left: 60%; animation-delay: 1.2s; }
-    
     @keyframes float {
       0% {
         transform: translateY(100vh) scale(0);
         opacity: 0;
       }
-      50% {
-        opacity: 1;
-      }
+      50% { opacity: 1; }
       100% {
         transform: translateY(-20vh) scale(1);
         opacity: 0;
       }
     }
-    
+    /* Hiệu ứng tuyết rơi */
+    .snow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .snowflake {
+      position: absolute;
+      top: -10%;
+      color: #fff;
+      font-size: 16px;
+      opacity: 0.8;
+      animation: snowfall 10s linear infinite;
+    }
+    @keyframes snowfall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.8; }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    /* Container chính */
     .container {
       position: relative;
-      z-index: 2;
+      z-index: 4;
       background: rgba(255, 255, 255, 0.95);
       padding: 30px;
       border-radius: 15px;
@@ -138,21 +163,25 @@
     .tiktok { background: #010101; }
     .locket { background: #8A2BE2; }
 
-    /* Phần trang trí Giáng Sinh */
+    /* Trang trí Giáng Sinh: Cây thông và lời chúc */
     .christmas-tree {
       position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
       font-size: 48px;
       z-index: 3;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0% { transform: translateX(-50%) scale(1); }
-      50% { transform: translateX(-50%) scale(1.1); }
-      100% { transform: translateX(-50%) scale(1); }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
+    /* Các cây thông đặt cố định */
+    .tree-center { top: 20px; left: 50%; transform: translateX(-50%); }
+    .tree-top-left { top: 10%; left: 10%; }
+    .tree-top-right { top: 10%; right: 10%; }
+    .tree-bottom-left { bottom: 10%; left: 10%; }
+    .tree-bottom-right { bottom: 10%; right: 10%; }
+    /* Lời chúc Giáng Sinh */
     .christmas-greeting {
       position: absolute;
       top: 80px;
@@ -168,10 +197,38 @@
       0% { opacity: 0.6; }
       100% { opacity: 1; }
     }
+
+    /* Ông già Noel và tất chạy ngang */
+    .santa {
+      position: absolute;
+      bottom: 20px;
+      left: -100px;
+      font-size: 48px;
+      z-index: 6;
+      animation: slideSanta 10s linear infinite;
+    }
+    @keyframes slideSanta {
+      0% { left: -100px; }
+      50% { left: 100%; }
+      100% { left: -100px; }
+    }
+    .stocking {
+      position: absolute;
+      bottom: 20px;
+      right: -100px;
+      font-size: 48px;
+      z-index: 6;
+      animation: slideStocking 8s linear infinite;
+    }
+    @keyframes slideStocking {
+      0% { right: -100px; }
+      50% { right: 100%; }
+      100% { right: -100px; }
+    }
   </style>
 </head>
 <body>
-  <!-- Phần hiệu ứng particles xung quanh -->
+  <!-- Phần hiệu ứng particles cũ -->
   <div class="particles">
     <div class="particle"></div>
     <div class="particle"></div>
@@ -183,10 +240,35 @@
     <div class="particle"></div>
   </div>
 
-  <!-- Trang trí Giáng Sinh -->
-  <div class="christmas-tree">🎄</div>
+  <!-- Hiệu ứng tuyết rơi -->
+  <div class="snow">
+    <!-- Tạo 15 bông tuyết với vị trí và thời gian ngẫu nhiên -->
+    <div class="snowflake" style="left: 10%; animation-delay: 0s;">❄</div>
+    <div class="snowflake" style="left: 20%; animation-delay: 1s;">❄</div>
+    <div class="snowflake" style="left: 30%; animation-delay: 0.5s;">❄</div>
+    <div class="snowflake" style="left: 40%; animation-delay: 1.5s;">❄</div>
+    <div class="snowflake" style="left: 50%; animation-delay: 0.8s;">❄</div>
+    <div class="snowflake" style="left: 60%; animation-delay: 1.2s;">❄</div>
+    <div class="snowflake" style="left: 70%; animation-delay: 0.3s;">❄</div>
+    <div class="snowflake" style="left: 80%; animation-delay: 1.8s;">❄</div>
+    <div class="snowflake" style="left: 90%; animation-delay: 0.7s;">❄</div>
+    <div class="snowflake" style="left: 15%; animation-delay: 0.9s;">❄</div>
+    <div class="snowflake" style="left: 35%; animation-delay: 1.3s;">❄</div>
+    <div class="snowflake" style="left: 55%; animation-delay: 0.4s;">❄</div>
+    <div class="snowflake" style="left: 75%; animation-delay: 1.6s;">❄</div>
+    <div class="snowflake" style="left: 85%; animation-delay: 0.6s;">❄</div>
+    <div class="snowflake" style="left: 95%; animation-delay: 1.1s;">❄</div>
+  </div>
+
+  <!-- Trang trí Giáng Sinh: Cây thông và lời chúc -->
+  <div class="christmas-tree tree-center">🎄</div>
+  <div class="christmas-tree tree-top-left">🎄</div>
+  <div class="christmas-tree tree-top-right">🎄</div>
+  <div class="christmas-tree tree-bottom-left">🎄</div>
+  <div class="christmas-tree tree-bottom-right">🎄</div>
   <div class="christmas-greeting">Merry Christmas!</div>
 
+  <!-- Nội dung chính -->
   <div class="container">
     <h1>info Đăng Hướng</h1>
     <p class="typing-text"></p>
@@ -205,6 +287,10 @@
       </a>
     </div>
   </div>
+
+  <!-- Ông già Noel và tất chạy ngang -->
+  <div class="santa">🎅</div>
+  <div class="stocking">🧦</div>
 
   <script>
     // Hiệu ứng chữ gõ tự động
